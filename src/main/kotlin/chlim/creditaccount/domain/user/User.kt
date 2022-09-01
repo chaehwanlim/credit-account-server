@@ -3,7 +3,7 @@ package chlim.creditaccount.domain.user
 import javax.persistence.*
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 class User(name: String, email: String) {
 
     @Id
