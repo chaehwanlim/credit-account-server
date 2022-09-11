@@ -6,6 +6,8 @@ plugins {
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
 	kotlin("plugin.jpa") version "1.6.21"
+
+	id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
 }
 
 group = "chlim"
@@ -36,6 +38,18 @@ dependencies {
 
 	// Database
 	implementation("com.h2database:h2")
+}
+
+noArg {
+	annotation("javax.persistence.Entity")
+	annotation("javax.persistence.MappedSuperclass")
+	annotation("javax.persistence.Embeddable")
+}
+
+allOpen {
+	annotation("javax.persistence.Entity")
+	annotation("javax.persistence.MappedSuperclass")
+	annotation("javax.persistence.Embeddable")
 }
 
 tasks.withType<KotlinCompile> {
