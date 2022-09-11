@@ -1,10 +1,11 @@
-package chlim.creditaccount.domain.user
+package chlim.creditaccount.user.domain
 
+import chlim.creditaccount.common.AbstractEntity
 import javax.persistence.*
 
 @Entity
 @Table(name = "users")
-class User(name: String, email: String) {
+class User(name: String, email: String): AbstractEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
