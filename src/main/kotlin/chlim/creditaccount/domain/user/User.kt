@@ -1,4 +1,4 @@
-package chlim.creditaccount.user.domain
+package chlim.creditaccount.domain.user
 
 import chlim.creditaccount.common.AbstractEntity
 import javax.persistence.*
