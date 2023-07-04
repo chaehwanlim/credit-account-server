@@ -5,7 +5,11 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "users")
-class User(name: String, email: String): AbstractEntity() {
+class User(
+    name: String,
+    email: String,
+    phoneNumber: String
+): AbstractEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,6 +18,8 @@ class User(name: String, email: String): AbstractEntity() {
     var name: String = name
 
     var email: String = email
+
+    var phoneNumber: PhoneNumber = PhoneNumber(phoneNumber)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) {
@@ -26,11 +32,7 @@ class User(name: String, email: String): AbstractEntity() {
 
         other as User
 
-        if (this.id != other.id) {
-            return false
-        }
-
-        return true
+        return this.id == other.id
     }
 
     override fun hashCode(): Int {
@@ -38,7 +40,7 @@ class User(name: String, email: String): AbstractEntity() {
     }
 
     override fun toString(): String {
-        return "User=(id=${this.id}, name='${this.name}', email='${this.email}')"
+        return "User=(id=${this.id}, name='${this.name}', email='${this.email}', phone='${this.phoneNumber})"
     }
 
 }
