@@ -38,6 +38,9 @@ dependencies {
 
 	// Database
 	implementation("com.h2database:h2")
+
+	// Utilities
+	implementation("com.googlecode.libphonenumber:libphonenumber:8.13.15")
 }
 
 noArg {
