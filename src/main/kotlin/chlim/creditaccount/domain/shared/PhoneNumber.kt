@@ -1,6 +1,6 @@
-package chlim.creditaccount.domain.user
+package chlim.creditaccount.domain.shared
 
-import chlim.creditaccount.domain.user.exception.PhoneNumberInvalidException
+import chlim.creditaccount.domain.shared.exception.PhoneNumberInvalidException
 import com.google.i18n.phonenumbers.PhoneNumberUtil
 
 private const val DEFAULT_LOCALE_CODE = "KR"
