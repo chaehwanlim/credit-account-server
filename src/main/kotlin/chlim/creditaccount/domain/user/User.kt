@@ -1,6 +1,7 @@
 package chlim.creditaccount.domain.user
 
 import chlim.creditaccount.common.AbstractEntity
+import chlim.creditaccount.domain.shared.PhoneNumber
 import javax.persistence.*
 
 @Entity
