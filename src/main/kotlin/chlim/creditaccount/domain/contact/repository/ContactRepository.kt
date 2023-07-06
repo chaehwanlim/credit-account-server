@@ -1,4 +1,4 @@
-package chlim.creditaccount.domain.repository
+package chlim.creditaccount.domain.contact.repository
 
 import chlim.creditaccount.domain.contact.Contact
 import org.springframework.data.jpa.repository.JpaRepository
