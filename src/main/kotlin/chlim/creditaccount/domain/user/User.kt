@@ -2,6 +2,7 @@ package chlim.creditaccount.domain.user
 
 import chlim.creditaccount.common.AbstractEntity
 import chlim.creditaccount.domain.shared.PhoneNumber
+import chlim.creditaccount.domain.store.Store
 import javax.persistence.*
 
 @Entity
@@ -21,6 +22,9 @@ class User(
     var email: String = email
 
     var phoneNumber: PhoneNumber = PhoneNumber(phoneNumber)
+
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var stores: MutableList<Store> = mutableListOf()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) {

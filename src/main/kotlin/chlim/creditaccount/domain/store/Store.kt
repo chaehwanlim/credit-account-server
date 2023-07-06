@@ -1,23 +1,24 @@
-package chlim.creditaccount.domain.contact
+package chlim.creditaccount.domain.store
 
 import chlim.creditaccount.common.AbstractEntity
+import chlim.creditaccount.domain.contact.Contact
 import chlim.creditaccount.domain.shared.PhoneNumber
-import chlim.creditaccount.domain.store.Store
+import chlim.creditaccount.domain.user.User
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
+import javax.persistence.OneToMany
 import javax.persistence.Table
 
 @Entity
-@Table(name = "contacts")
-class Contact(
+@Table(name = "stores")
+class Store(
     name: String,
     phoneNumber: String,
-    memo: String?,
-    store: Store
+    user: User,
 ): AbstractEntity() {
 
     @Id
@@ -28,11 +29,12 @@ class Contact(
 
     var phoneNumber: PhoneNumber = PhoneNumber(phoneNumber)
 
-    var memo: String? = memo
-
     @ManyToOne
-    @JoinColumn(name = "store_id", nullable = false)
-    var store: Store = store
+    @JoinColumn(name = "user_id", nullable = false)
+    var user: User = user
+
+    @OneToMany(mappedBy = "store")
+    var contacts: MutableList<Contact> = mutableListOf()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) {
@@ -43,7 +45,7 @@ class Contact(
             return false
         }
 
-        other as Contact
+        other as Store
 
         return this.id == other.id
     }
@@ -53,6 +55,6 @@ class Contact(
     }
 
     override fun toString(): String {
-        return "Contact=(id=${this.id}, name='${this.name}', phone='${this.phoneNumber}, memo='${this.memo})"
+        return "Store=(id=${this.id}, name='${this.name}', phone='${this.phoneNumber})"
     }
 }
