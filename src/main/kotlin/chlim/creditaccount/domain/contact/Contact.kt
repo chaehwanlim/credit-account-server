@@ -2,10 +2,13 @@ package chlim.creditaccount.domain.contact
 
 import chlim.creditaccount.common.AbstractEntity
 import chlim.creditaccount.domain.shared.PhoneNumber
+import chlim.creditaccount.domain.store.Store
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
 import javax.persistence.Table
 
 @Entity
@@ -13,7 +16,8 @@ import javax.persistence.Table
 class Contact(
     name: String,
     phoneNumber: String,
-    memo: String?
+    memo: String?,
+    store: Store
 ): AbstractEntity() {
 
     @Id
@@ -25,6 +29,10 @@ class Contact(
     var phoneNumber: PhoneNumber = PhoneNumber(phoneNumber)
 
     var memo: String? = memo
+
+    @ManyToOne
+    @JoinColumn(name = "store_id", nullable = false)
+    var store: Store = store
 
     override fun equals(other: Any?): Boolean {
         if (this === other) {
