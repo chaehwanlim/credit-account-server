@@ -2,6 +2,7 @@ package chlim.creditaccount.domain.store
 
 import chlim.creditaccount.common.AbstractEntity
 import chlim.creditaccount.domain.contact.Contact
+import chlim.creditaccount.domain.product.Product
 import chlim.creditaccount.domain.shared.PhoneNumber
 import chlim.creditaccount.domain.user.User
 import javax.persistence.Entity
@@ -35,6 +36,9 @@ class Store(
 
     @OneToMany(mappedBy = "store")
     var contacts: MutableList<Contact> = mutableListOf()
+
+    @OneToMany(mappedBy = "store")
+    var products: MutableList<Product> = mutableListOf()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) {
