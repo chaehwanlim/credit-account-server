@@ -1,25 +1,23 @@
-package chlim.creditaccount.domain.store
+package chlim.creditaccount.domain.product
 
 import chlim.creditaccount.common.AbstractEntity
-import chlim.creditaccount.domain.contact.Contact
-import chlim.creditaccount.domain.product.Product
-import chlim.creditaccount.domain.shared.PhoneNumber
-import chlim.creditaccount.domain.user.User
+import chlim.creditaccount.domain.store.Store
+import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
-import javax.persistence.OneToMany
 import javax.persistence.Table
 
 @Entity
-@Table(name = "stores")
-class Store(
+@Table(name = "products")
+class Product(
     name: String,
-    phoneNumber: String,
-    user: User,
+    price: Int,
+    quantity: Int,
+    store: Store
 ): AbstractEntity() {
 
     @Id
@@ -28,17 +26,13 @@ class Store(
 
     var name: String = name
 
-    var phoneNumber: PhoneNumber = PhoneNumber(phoneNumber)
+    var price: Int = price
+
+    var quantity: Int = quantity
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    var user: User = user
-
-    @OneToMany(mappedBy = "store")
-    var contacts: MutableList<Contact> = mutableListOf()
-
-    @OneToMany(mappedBy = "store")
-    var products: MutableList<Product> = mutableListOf()
+    @JoinColumn(name = "store_id", nullable = false)
+    var store: Store = store
 
     override fun equals(other: Any?): Boolean {
         if (this === other) {
@@ -49,7 +43,7 @@ class Store(
             return false
         }
 
-        other as Store
+        other as Product
 
         return this.id == other.id
     }
@@ -59,6 +53,6 @@ class Store(
     }
 
     override fun toString(): String {
-        return "Store=(id=${this.id}, name='${this.name}', phone='${this.phoneNumber})"
+        return "Product=(id=${this.id}, name='${this.name}', price='${this.price}, quantity='${this.quantity})"
     }
 }
