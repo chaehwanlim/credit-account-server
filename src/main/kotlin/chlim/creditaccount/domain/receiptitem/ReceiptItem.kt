@@ -18,7 +18,7 @@ class ReceiptItem(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "receipt_id", nullable = false)
     var receipt: Receipt = receipt
 
@@ -26,7 +26,7 @@ class ReceiptItem(
 
     var quantity: Int = quantity
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
     var product: Product = product
 
