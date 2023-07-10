@@ -1,5 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+// Properties
+val kotestVersion: String by project
+
 plugins {
 	id("org.springframework.boot") version "2.7.1"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
@@ -42,6 +45,11 @@ dependencies {
 	// Utilities
 	implementation("com.googlecode.libphonenumber:libphonenumber:8.13.15")
 	implementation("javax.validation:validation-api:2.0.1.Final")
+
+	// Test
+	testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
+	testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+
 }
 
 noArg {
