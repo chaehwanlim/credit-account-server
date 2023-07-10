@@ -41,6 +41,7 @@ dependencies {
 
 	// Utilities
 	implementation("com.googlecode.libphonenumber:libphonenumber:8.13.15")
+	implementation("javax.validation:validation-api:2.0.1.Final")
 }
 
 noArg {
