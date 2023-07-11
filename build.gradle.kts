@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 // Properties
 val kotestVersion: String by project
+val mockkVersion: String by project
 
 plugins {
 	id("org.springframework.boot") version "2.7.1"
@@ -49,7 +50,7 @@ dependencies {
 	// Test
 	testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
 	testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
-
+	testImplementation("io.mockk:mockk:$mockkVersion")
 }
 
 noArg {
