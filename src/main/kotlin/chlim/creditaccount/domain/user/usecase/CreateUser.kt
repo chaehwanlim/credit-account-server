@@ -29,10 +29,6 @@ class CreateUser(
             userRepository.save(user)
         }
 
-        return UserResult(
-            name = user.name,
-            email = user.email,
-            phoneNumber = user.phoneNumber.value
-        )
+        return UserResult.of(user)
     }
 }

@@ -39,11 +39,7 @@ class CreateStore(
         return StoreResult(
             name = store.name,
             phoneNumber = store.phoneNumber,
-            user = UserResult(
-                name = store.user.name,
-                email = store.user.email,
-                phoneNumber = store.user.phoneNumber.value
-            )
+            user = UserResult.of(user)
         )
     }
 }
