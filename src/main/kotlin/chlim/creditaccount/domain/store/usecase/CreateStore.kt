@@ -36,10 +36,6 @@ class CreateStore(
             storeRepository.save(store)
         }
 
-        return StoreResult(
-            name = store.name,
-            phoneNumber = store.phoneNumber,
-            user = UserResult.of(user)
-        )
+        return StoreResult.of(store)
     }
 }
