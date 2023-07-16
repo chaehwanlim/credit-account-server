@@ -7,7 +7,6 @@ import chlim.creditaccount.domain.store.usecase.command.CreateStoreCommand
 import chlim.creditaccount.domain.store.usecase.result.StoreResult
 import chlim.creditaccount.domain.user.exception.UserNotFoundException
 import chlim.creditaccount.domain.user.repository.UserRepository
-import chlim.creditaccount.domain.user.usecase.result.UserResult
 import org.springframework.stereotype.Service
 import javax.transaction.Transactional
 
@@ -36,6 +35,6 @@ class CreateStore(
             storeRepository.save(store)
         }
 
-        return StoreResult.of(store)
+        return StoreResult.from(store)
     }
 }

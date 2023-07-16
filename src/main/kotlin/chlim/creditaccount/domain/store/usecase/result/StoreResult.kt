@@ -12,10 +12,10 @@ data class StoreResult(
 
     companion object {
 
-        fun of(store: Store) = StoreResult(
+        fun from(store: Store) = StoreResult(
             name = store.name,
             phoneNumber = store.phoneNumber,
-            user = UserResult.of(store.user)
+            user = UserResult.from(store.user)
         )
     }
 }

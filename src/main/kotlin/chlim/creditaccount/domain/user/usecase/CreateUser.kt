@@ -29,6 +29,6 @@ class CreateUser(
             userRepository.save(user)
         }
 
-        return UserResult.of(user)
+        return UserResult.from(user)
     }
 }

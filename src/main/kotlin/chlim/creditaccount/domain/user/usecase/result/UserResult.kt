@@ -10,7 +10,7 @@ data class UserResult (
 
     companion object {
 
-        fun of(user: User) = UserResult(
+        fun from(user: User) = UserResult(
             name = user.name,
             email = user.email,
             phoneNumber = user.phoneNumber.value
