@@ -2,7 +2,9 @@ package chlim.creditaccount.domain.receipt
 
 import chlim.creditaccount.common.AbstractEntity
 import chlim.creditaccount.domain.contact.Contact
+import chlim.creditaccount.domain.product.Product
 import chlim.creditaccount.domain.receiptitem.ReceiptItem
+import chlim.creditaccount.domain.receiptitem.ReceiptItems
 import chlim.creditaccount.domain.store.Store
 import javax.persistence.*
 
@@ -11,6 +13,7 @@ import javax.persistence.*
 class Receipt(
     store: Store,
     contact: Contact,
+    receiptItems: List<ReceiptItem>,
     memo: String?
 ): AbstractEntity() {
 
@@ -26,8 +29,13 @@ class Receipt(
     @JoinColumn(name = "contact_id", nullable = false)
     var contact: Contact = contact
 
-    @OneToMany(mappedBy = "receipt", cascade = [CascadeType.ALL], orphanRemoval = true)
-    var items: MutableList<ReceiptItem> = mutableListOf()
+    @Embedded
+    private var receiptItems: ReceiptItems = ReceiptItems(receiptItems)
+
+    val items
+        get() = this.receiptItems.items()
+    val totalPrice
+        get() = this.receiptItems.totalPrice()
 
     var memo: String? = memo
 
