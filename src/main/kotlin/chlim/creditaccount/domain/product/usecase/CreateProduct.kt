@@ -7,7 +7,7 @@ import chlim.creditaccount.domain.product.usecase.result.ProductResult
 import chlim.creditaccount.domain.store.exception.StoreNotFoundException
 import chlim.creditaccount.domain.store.repository.StoreRepository
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
+import jakarta.transaction.Transactional
 
 @Service
 class CreateProduct(

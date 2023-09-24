@@ -2,7 +2,7 @@ package chlim.creditaccount.domain.product
 
 import chlim.creditaccount.common.AbstractEntity
 import chlim.creditaccount.domain.store.Store
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "products")

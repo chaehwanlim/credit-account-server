@@ -6,7 +6,7 @@ import chlim.creditaccount.domain.user.repository.UserRepository
 import chlim.creditaccount.domain.user.usecase.command.CreateUserCommand
 import chlim.creditaccount.domain.user.usecase.result.UserResult
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
+import jakarta.transaction.Transactional
 
 @Service
 class CreateUser(

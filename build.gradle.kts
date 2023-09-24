@@ -5,7 +5,7 @@ val kotestVersion: String by project
 val mockkVersion: String by project
 
 plugins {
-	id("org.springframework.boot") version "2.7.1"
+	id("org.springframework.boot") version "3.1.3"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
@@ -16,7 +16,7 @@ plugins {
 
 group = "chlim"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 configurations {
 	compileOnly {
@@ -46,7 +46,7 @@ dependencies {
 
 	// Utilities
 	implementation("com.googlecode.libphonenumber:libphonenumber:8.13.15")
-	implementation("javax.validation:validation-api:2.0.1.Final")
+	implementation("jakarta.validation:jakarta.validation-api:3.0.2")
 
 	// Test
 	testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
@@ -55,21 +55,21 @@ dependencies {
 }
 
 noArg {
-	annotation("javax.persistence.Entity")
-	annotation("javax.persistence.MappedSuperclass")
-	annotation("javax.persistence.Embeddable")
+	annotation("jakarta.persistence.Entity")
+	annotation("jakarta.persistence.MappedSuperclass")
+	annotation("jakarta.persistence.Embeddable")
 }
 
 allOpen {
-	annotation("javax.persistence.Entity")
-	annotation("javax.persistence.MappedSuperclass")
-	annotation("javax.persistence.Embeddable")
+	annotation("jakarta.persistence.Entity")
+	annotation("jakarta.persistence.MappedSuperclass")
+	annotation("jakarta.persistence.Embeddable")
 }
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "11"
+		jvmTarget = "17"
 	}
 }
 

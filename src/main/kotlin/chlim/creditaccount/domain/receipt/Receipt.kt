@@ -6,7 +6,7 @@ import chlim.creditaccount.domain.product.Product
 import chlim.creditaccount.domain.receiptitem.ReceiptItem
 import chlim.creditaccount.domain.receiptitem.ReceiptItems
 import chlim.creditaccount.domain.store.Store
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "receipts")

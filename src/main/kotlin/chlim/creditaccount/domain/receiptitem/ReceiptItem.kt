@@ -3,7 +3,7 @@ package chlim.creditaccount.domain.receiptitem
 import chlim.creditaccount.common.AbstractEntity
 import chlim.creditaccount.domain.product.Product
 import chlim.creditaccount.domain.receipt.Receipt
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "receipt_items")

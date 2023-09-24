@@ -3,7 +3,7 @@ package chlim.creditaccount.domain.user
 import chlim.creditaccount.common.AbstractEntity
 import chlim.creditaccount.domain.shared.PhoneNumber
 import chlim.creditaccount.domain.store.Store
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "users")

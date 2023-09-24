@@ -5,7 +5,7 @@ import chlim.creditaccount.domain.contact.Contact
 import chlim.creditaccount.domain.product.Product
 import chlim.creditaccount.domain.shared.PhoneNumber
 import chlim.creditaccount.domain.user.User
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "stores")

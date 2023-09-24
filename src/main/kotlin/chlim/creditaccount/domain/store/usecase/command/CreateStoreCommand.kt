@@ -1,8 +1,8 @@
 package chlim.creditaccount.domain.store.usecase.command
 
 import chlim.creditaccount.common.SelfValidator
-import javax.validation.constraints.NotBlank
-import javax.validation.constraints.Positive
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.Positive
 
 data class CreateStoreCommand(
     @field: NotBlank val name: String,
