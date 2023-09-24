@@ -8,7 +8,7 @@ import chlim.creditaccount.domain.store.usecase.result.StoreResult
 import chlim.creditaccount.domain.user.exception.UserNotFoundException
 import chlim.creditaccount.domain.user.repository.UserRepository
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
+import jakarta.transaction.Transactional
 
 @Service
 class CreateStore(

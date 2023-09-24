@@ -2,7 +2,7 @@ package chlim.creditaccount.domain.store.usecase.command
 
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.FreeSpec
-import javax.validation.ConstraintViolationException
+import jakarta.validation.ConstraintViolationException
 
 class CreateStoreCommandTest: FreeSpec({
 

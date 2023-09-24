@@ -1,8 +1,8 @@
 package chlim.creditaccount.domain.receiptitem
 
-import javax.persistence.CascadeType
-import javax.persistence.Embeddable
-import javax.persistence.OneToMany
+import jakarta.persistence.CascadeType
+import jakarta.persistence.Embeddable
+import jakarta.persistence.OneToMany
 
 @Embeddable
 class ReceiptItems(

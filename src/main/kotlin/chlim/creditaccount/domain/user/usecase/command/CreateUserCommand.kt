@@ -1,7 +1,7 @@
 package chlim.creditaccount.domain.user.usecase.command
 
 import chlim.creditaccount.common.SelfValidator
-import javax.validation.constraints.NotBlank
+import jakarta.validation.constraints.NotBlank
 
 
 data class CreateUserCommand(

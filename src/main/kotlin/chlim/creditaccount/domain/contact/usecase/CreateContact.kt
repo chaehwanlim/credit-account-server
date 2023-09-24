@@ -8,7 +8,7 @@ import chlim.creditaccount.domain.contact.usecase.result.ContactResult
 import chlim.creditaccount.domain.store.exception.StoreNotFoundException
 import chlim.creditaccount.domain.store.repository.StoreRepository
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
+import jakarta.transaction.Transactional
 
 @Service
 class CreateContact(
