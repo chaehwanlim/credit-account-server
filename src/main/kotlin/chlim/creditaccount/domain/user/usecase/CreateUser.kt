@@ -15,8 +15,8 @@ class CreateUser(
 
     @Transactional
     fun execute(command: CreateUserCommand): UserResult {
-        if (userRepository.findByPhoneNumber(command.phoneNumber) != null) {
-            throw UserAlreadyExistsException(command.phoneNumber)
+        if (userRepository.existsByEmailOrPhoneNumber(command.email, command.phoneNumber)) {
+            throw UserAlreadyExistsException(command.toString())
         }
 
         val user = run {

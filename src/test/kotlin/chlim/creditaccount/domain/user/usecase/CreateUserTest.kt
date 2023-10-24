@@ -19,8 +19,8 @@ internal class CreateUserTest: FreeSpec({
         phoneNumber = "01012345678"
     )
 
-    "이미 동일한 휴대폰 번호로 가입된 유저가 있으면" - {
-        every { userRepository.findByPhoneNumber(any()) } returns mockk()
+    "이미 동일한 이메일이나 휴대폰 번호로 가입된 유저가 있으면" - {
+        every { userRepository.existsByEmailOrPhoneNumber(any(), any()) } returns true
 
         "유저를 생성할 수 없다." {
             shouldThrow<UserAlreadyExistsException> {
@@ -29,8 +29,8 @@ internal class CreateUserTest: FreeSpec({
         }
     }
 
-    "동일한 휴대폰 번호로 가입된 유저가 없으면" - {
-        every { userRepository.findByPhoneNumber(any()) } returns null
+    "동일한 이메일이나 휴대폰 번호로 가입된 유저가 없으면" - {
+        every { userRepository.existsByEmailOrPhoneNumber(any(), any()) } returns false
         every { userRepository.save(any()) } returns mockk(relaxed = true)
 
         "유저를 생성할 수 있다." {
