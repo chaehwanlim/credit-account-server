@@ -1,6 +1,7 @@
 package chlim.creditaccount.domain.user
 
 import chlim.creditaccount.common.AbstractEntity
+import chlim.creditaccount.domain.authmethod.AuthMethod
 import chlim.creditaccount.domain.shared.PhoneNumber
 import chlim.creditaccount.domain.store.Store
 import jakarta.persistence.*
@@ -25,6 +26,17 @@ class User(
 
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
     val stores: MutableList<Store> = mutableListOf()
+
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
+    val authMethods: List<AuthMethod> = mutableListOf()
+
+    fun addAuthMethod(authMethod: AuthMethod) {
+        (this.authMethods as MutableList).add(authMethod)
+    }
+
+    fun getRoles(): List<String> {
+        return mutableListOf("ROLE_USER")
+    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) {
