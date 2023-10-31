@@ -8,8 +8,8 @@ import lombok.ToString
 data class CreateUserCommand(
     @field: NotBlank val name: String,
     @field: NotBlank val email: String,
-    @field: NotBlank val phoneNumber: String
-): SelfValidator<CreateUserCommand>() {
+    val phoneNumber: String?
+) : SelfValidator<CreateUserCommand>() {
 
     init {
         validateAndIfViolatedThrows()

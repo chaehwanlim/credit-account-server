@@ -10,21 +10,21 @@ import jakarta.persistence.*
 class User(
     name: String,
     email: String,
-    phoneNumber: String
-): AbstractEntity() {
+    phoneNumber: String?
+) : AbstractEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null
+    val id: Long? = null
 
-    var name: String = name
+    val name: String = name
 
-    var email: String = email
+    val email: String = email
 
-    var phoneNumber: PhoneNumber = PhoneNumber(phoneNumber)
+    val phoneNumber: PhoneNumber? = if (phoneNumber != null) PhoneNumber(phoneNumber) else null
 
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
-    var stores: MutableList<Store> = mutableListOf()
+    val stores: MutableList<Store> = mutableListOf()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) {
@@ -47,5 +47,4 @@ class User(
     override fun toString(): String {
         return "User=(id=${this.id}, name='${this.name}', email='${this.email}', phone='${this.phoneNumber})"
     }
-
 }

@@ -5,8 +5,8 @@ import chlim.creditaccount.domain.user.exception.UserAlreadyExistsException
 import chlim.creditaccount.domain.user.repository.UserRepository
 import chlim.creditaccount.domain.user.usecase.command.CreateUserCommand
 import chlim.creditaccount.domain.user.usecase.result.UserResult
-import org.springframework.stereotype.Service
 import jakarta.transaction.Transactional
+import org.springframework.stereotype.Service
 
 @Service
 class CreateUser(
@@ -15,7 +15,7 @@ class CreateUser(
 
     @Transactional
     fun execute(command: CreateUserCommand): UserResult {
-        if (userRepository.existsByEmailOrPhoneNumber(command.email, command.phoneNumber)) {
+        if (userRepository.findByEmail(command.email) != null) {
             throw UserAlreadyExistsException(command.toString())
         }
 

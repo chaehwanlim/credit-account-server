@@ -8,7 +8,7 @@ import io.kotest.core.spec.style.FreeSpec
 import io.mockk.every
 import io.mockk.mockk
 
-internal class CreateUserTest: FreeSpec({
+internal class CreateUserTest : FreeSpec({
 
     val userRepository: UserRepository = mockk()
     val createUser = CreateUser(userRepository)
@@ -19,8 +19,8 @@ internal class CreateUserTest: FreeSpec({
         phoneNumber = "01012345678"
     )
 
-    "이미 동일한 이메일이나 휴대폰 번호로 가입된 유저가 있으면" - {
-        every { userRepository.existsByEmailOrPhoneNumber(any(), any()) } returns true
+    "이미 동일한 이메일로 가입된 유저가 있으면" - {
+        every { userRepository.findByEmail(any()) } returns mockk(relaxed = true)
 
         "유저를 생성할 수 없다." {
             shouldThrow<UserAlreadyExistsException> {
@@ -29,8 +29,8 @@ internal class CreateUserTest: FreeSpec({
         }
     }
 
-    "동일한 이메일이나 휴대폰 번호로 가입된 유저가 없으면" - {
-        every { userRepository.existsByEmailOrPhoneNumber(any(), any()) } returns false
+    "동일한 이메일로 가입된 유저가 없으면" - {
+        every { userRepository.findByEmail(any()) } returns null
         every { userRepository.save(any()) } returns mockk(relaxed = true)
 
         "유저를 생성할 수 있다." {
