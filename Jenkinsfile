@@ -1,6 +1,6 @@
 def region = "ap-northeast-2"
 def ecrUrl = "806246625807.dkr.ecr.ap-northeast-2.amazonaws.com"
-def ec2Url = "ec2-3-36-118-140.ap-northeast-2.compute.amazonaws.com"
+def ec2Url = "15.165.202.64"
 def repository = "credit-account"
 def containerName = "credit-account-server"
 
